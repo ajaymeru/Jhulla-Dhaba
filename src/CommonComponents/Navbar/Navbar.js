@@ -1,15 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import "./Navbar.css"
-import logo from "./Assets/logo.png"
+import { Divide as Hamburger } from 'hamburger-react';
+import { Link } from 'react-router-dom';
+import "./Navbar.css";
+import logo from "./Assets/logo.png";
 
 const Navbar = () => {
+
     return (
         <nav>
             <div className="logo-container">
-                <img src={logo} alt="Jhulla Dhaba Logo" className="logo" />
+                <img src={logo} alt="Logo" className="logo" />
             </div>
-            <ul>
+
+            <ul className="nav-links">
                 <li>
                     <Link to="/" >Home</Link>
                 </li>
@@ -29,8 +31,12 @@ const Navbar = () => {
                     <Link to="/contact" >Contact</Link>
                 </li>
             </ul>
+
+            <div className="hamburger-container">
+                <Hamburger />
+            </div>
         </nav>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;
