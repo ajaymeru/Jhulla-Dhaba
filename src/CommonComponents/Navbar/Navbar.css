@@ -52,13 +52,11 @@ nav {
 
 .hamburger-container {
     display: none;
-
 }
 
 @media (max-width:700px) {
     .hamburger-container {
         display: block;
-
     }
 
     .nav-links {
@@ -73,12 +71,15 @@ nav {
         background-color: burlywood;
         right: 0;
         border-radius: 100% 0% 0% 100% / 0% 100% 0% 100%;
+        transition: all 0.5s ease;
+    }
 
-
+    .nav-links.open {
+        display: flex;
+        transition: all 0.5s ease;
     }
 
     .nav-links li a {
         color: black;
     }
-
 }

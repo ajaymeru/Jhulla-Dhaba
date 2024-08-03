@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import { Divide as Hamburger } from 'hamburger-react';
 import { Link } from 'react-router-dom';
 import "./Navbar.css";
 import logo from "./Assets/logo.png";
 
 const Navbar = () => {
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    const toggleNav = () => {
+        setIsNavOpen(!isNavOpen);
+    };
 
     return (
         <nav>
@@ -11,7 +17,7 @@ const Navbar = () => {
                 <img src={logo} alt="Logo" className="logo" />
             </div>
 
-            <ul className="nav-links">
+            <ul className={`nav-links ${isNavOpen ? 'open' : ''}`} onClick={toggleNav}>
                 <li>
                     <Link to="/" >Home</Link>
                 </li>
@@ -33,7 +39,7 @@ const Navbar = () => {
             </ul>
 
             <div className="hamburger-container">
-                <Hamburger />
+                <Hamburger toggled={isNavOpen} toggle={toggleNav} />
             </div>
         </nav>
     );
