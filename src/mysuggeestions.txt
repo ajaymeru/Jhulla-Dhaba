@@ -6,3 +6,6 @@ css colors list
 #C1C8E4
 #8860D0
 
+react 
+
+react slideshow
