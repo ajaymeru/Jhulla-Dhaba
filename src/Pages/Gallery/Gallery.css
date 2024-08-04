@@ -3,19 +3,28 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
     padding: 10px;
+    max-height: 80vh;
+    /* Adjust based on your design */
+    overflow-y: auto;
+    /* Enable scrolling */
+    scroll-behavior: smooth;
+    /* Smooth scrolling */
 }
 
 .gallery-item {
     overflow: hidden;
-    /* Ensures that images do not overflow their container */
     border-radius: 8px;
 }
 
 .gallery-item img {
     width: 100%;
     height: 200px;
-    /* Set a fixed height for the images */
     object-fit: cover;
-    /* Ensures the image covers the container without distortion */
     display: block;
+}
+
+.loading {
+    text-align: center;
+    padding: 10px;
+    color: #555;
 }
