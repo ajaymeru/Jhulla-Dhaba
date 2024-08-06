@@ -1,3 +1,4 @@
+// src/Home.js
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,27 +12,31 @@ import './Home.css';
 import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 import homeData from './Home.json';
+import BookTable from '../BookATable/BookATable';
 
 const Home = () => {
     const imageUrls = homeData.HomeImages;
 
     return (
-        <Swiper
-            spaceBetween={30}
-            effect={'fade'}
-            navigation={true}
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3000 }}
-            loop={true}
-            modules={[EffectFade, Navigation, Pagination, Autoplay]}
-            className="mySwiper"
-        >
-            {imageUrls.map((url, index) => (
-                <SwiperSlide key={index}>
-                    <img src={url} alt={`Slide ${index + 1}`} />
-                </SwiperSlide>
-            ))}
-        </Swiper>
+        <div className="home-container">
+            <Swiper
+                spaceBetween={30}
+                effect={'fade'}
+                navigation={true}
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 3000 }}
+                loop={true}
+                modules={[EffectFade, Navigation, Pagination, Autoplay]}
+                className="mySwiper"
+            >
+                {imageUrls.map((url, index) => (
+                    <SwiperSlide key={index}>
+                        <img src={url} alt={`Slide ${index + 1}`} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <BookTable />
+        </div>
     );
 }
 
