@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './CommonComponents/Navbar/Navbar';
+import Footer from './CommonComponents/Footer/Footer';
 import Home from './Pages/Home/Home';
 import Aboutus from './Pages/Aboutus/Aboutus';
 import Gallery from './Pages/Gallery/Gallery';
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/bookatable" element={<BookATable />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

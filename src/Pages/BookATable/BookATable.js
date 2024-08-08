@@ -1,63 +1,149 @@
-// src/BookTable.js
 import React, { useState } from 'react';
-import './BookTable.css';
+import bookatableimg from "./Assets/bookatableimg.png";
+import "./BookATable.css";
 
-const BookTable = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
-    const [people, setPeople] = useState(1);
+const BookATable = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        mobile: '',
+        email: '',
+        guests: '',
+        date: '',
+        time: '',
+        preferences: {
+            smokingArea: false,
+            kidsFriendly: false,
+            lowMusic: false
+        }
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        if (type === "checkbox") {
+            setFormData({
+                ...formData,
+                preferences: {
+                    ...formData.preferences,
+                    [name]: checked
+                }
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value
+            });
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Add your form submission logic here
-        console.log('Table booked:', { name, email, date, time, people });
-        alert(`Thank you ${name}, your table has been booked!`);
-    }
+        // Handle form submission
+        console.log(formData);
+    };
 
     return (
-        <div className="book-table">
-            <h2>Book a Table</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    required
-                />
-                <input
-                    type="time"
-                    value={time}
-                    onChange={(e) => setTime(e.target.value)}
-                    required
-                />
-                <input
-                    type="number"
-                    placeholder="Number of People"
-                    value={people}
-                    onChange={(e) => setPeople(e.target.value)}
-                    min="1"
-                    required
-                />
-                <button type="submit">Book Now</button>
-            </form>
+        <div className='bookatable'>
+            <div className="bookatableimg">
+                <img src={bookatableimg} alt="Book a Table" />
+                <button className='bookatableimg-butn'>Book table</button>
+            </div>
+            <div className="bookatableform">
+                <h2>Table Booking Form</h2>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        Name:
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Mobile:
+                        <input
+                            type="tel"
+                            name="mobile"
+                            value={formData.mobile}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Email:
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Number of Guests:
+                        <input
+                            type="number"
+                            name="guests"
+                            value={formData.guests}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Select Date:
+                        <input
+                            type="date"
+                            name="date"
+                            value={formData.date}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Select Time Slot:
+                        <input
+                            type="time"
+                            name="time"
+                            value={formData.time}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </label>
+                    <div className="preferences">
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="smokingArea"
+                                checked={formData.preferences.smokingArea}
+                                onChange={handleInputChange}
+                            />
+                            Smoking Area
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="kidsFriendly"
+                                checked={formData.preferences.kidsFriendly}
+                                onChange={handleInputChange}
+                            />
+                            Kids Friendly
+                        </label>
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="lowMusic"
+                                checked={formData.preferences.lowMusic}
+                                onChange={handleInputChange}
+                            />
+                            Low Music
+                        </label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>
     );
 }
 
-export default BookTable;
+export default BookATable;

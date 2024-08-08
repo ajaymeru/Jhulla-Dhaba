@@ -9,10 +9,10 @@ import 'swiper/css/autoplay';
 
 import './Home.css';
 
-import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { EffectFade, Navigation, Autoplay } from 'swiper/modules';
 
 import homeData from './Home.json';
-import BookTable from '../BookATable/BookATable';
+import LinkToBook from './LinkToBook';
 
 const Home = () => {
     const imageUrls = homeData.HomeImages;
@@ -23,10 +23,10 @@ const Home = () => {
                 spaceBetween={30}
                 effect={'fade'}
                 navigation={true}
-                pagination={{ clickable: true }}
+                // pagination={{ clickable: true }}
                 autoplay={{ delay: 3000 }}
                 loop={true}
-                modules={[EffectFade, Navigation, Pagination, Autoplay]}
+                modules={[EffectFade, Navigation, Autoplay]}
                 className="mySwiper"
             >
                 {imageUrls.map((url, index) => (
@@ -35,7 +35,8 @@ const Home = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <BookTable />
+
+            <LinkToBook />
         </div>
     );
 }

@@ -1,0 +1,59 @@
+.bookatablehome {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: powderblue;
+    gap: 20px;
+    padding: 30px 0;
+}
+
+.bookatablehomeimg {
+    width: 400px;
+    height: 500px;
+    border-radius: 5%;
+}
+
+.bookatablehomelinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    height: 450px;
+}
+
+.bookatablehomelinks .child1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bookatablehomelinks .child2 button {
+    background-color: transparent;
+    border: none;
+    font-size: xx-large;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bookatablehomelinks .child2 button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: currentColor;
+    /* Use the current text color */
+    transition: width 0.3s ease;
+}
+
+.bookatablehomelinks .child2 button:hover::after {
+    width: 100%;
+    /* Expand the underline to full width */
+}
+
+.bookatablehomelinks .child3 {
+    border-top: 1px solid rgb(112, 112, 112);
+}
