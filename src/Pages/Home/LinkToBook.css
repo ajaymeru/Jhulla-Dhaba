@@ -28,6 +28,14 @@
     gap: 10px;
 }
 
+.bookatablehomelinks .child1 h2 {
+    font-family: emoji;
+    font-size: xx-large;
+    font-weight: bold;
+    font-style: oblique;
+    font-variant-caps: titling-caps;
+}
+
 .bookatablehomelinks .child2 button {
     background-color: transparent;
     border: none;

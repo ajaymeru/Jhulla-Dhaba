@@ -1,9 +1,17 @@
 import React from 'react'
 import bookatablehome from "./Assets/bookatablehome.jpg"
 import './LinkToBook.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const LinkToBook = () => {
+    const navigate = useNavigate();
+
+    const handleBooktable = () => {
+        navigate('/bookatable')
+    }
+
+
     return (
         <div className='bookatablehome'>
 
@@ -16,7 +24,7 @@ const LinkToBook = () => {
                 </div>
 
                 <div className="child2">
-                    <button>Book a Table</button>
+                    <button onClick={handleBooktable} >Book a Table</button>
                 </div>
 
                 <div className="child3">
