@@ -1,4 +1,3 @@
-// src/Home.js
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -23,7 +22,6 @@ const Home = () => {
                 spaceBetween={30}
                 effect={'fade'}
                 navigation={true}
-                // pagination={{ clickable: true }}
                 autoplay={{ delay: 3000 }}
                 loop={true}
                 modules={[EffectFade, Navigation, Autoplay]}
